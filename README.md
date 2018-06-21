@@ -1,4 +1,4 @@
-# Algo VPN
+# SomaVPN
 
 [![Join the chat at https://gitter.im/trailofbits/algo](https://badges.gitter.im/trailofbits/algo.svg)](https://gitter.im/trailofbits/algo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40AlgoVPN)](https://twitter.com/AlgoVPN)
@@ -25,15 +25,15 @@ Algo VPN is a set of Ansible scripts that simplify the setup of a personal IPSEC
 * Does not claim to provide anonymity or censorship avoidance
 * Does not claim to protect you from the [FSB](https://en.wikipedia.org/wiki/Federal_Security_Service), [MSS](https://en.wikipedia.org/wiki/Ministry_of_State_Security_(China)), [DGSE](https://en.wikipedia.org/wiki/Directorate-General_for_External_Security), or [FSM](https://en.wikipedia.org/wiki/Flying_Spaghetti_Monster)
 
-## Deploy the Algo Server
+## Deploy the SomaVPN Server
 
-The easiest way to get an Algo server running is to let it set up a _new_ virtual machine in the cloud for you.
+The easiest way to get an SomaVPN server running is to let it set up a _new_ virtual machine in the cloud for you.
 
-1. **Setup an account on a cloud hosting provider.** Algo supports [DigitalOcean](https://m.do.co/c/4d7f4ff9cfe4) (most user friendly), [Amazon Lightsail](https://aws.amazon.com/lightsail/), [Amazon EC2](https://aws.amazon.com/), [Microsoft Azure](https://azure.microsoft.com/), [Google Compute Engine](https://cloud.google.com/compute/), [Scaleway](https://www.scaleway.com/) and [OpenStack](https://www.openstack.org/).
+1. **Setup an account on a cloud hosting provider.** SomaVPN supports [DigitalOcean](https://m.do.co/c/4d7f4ff9cfe4) (most user friendly), [Amazon Lightsail](https://aws.amazon.com/lightsail/), [Amazon EC2](https://aws.amazon.com/), [Microsoft Azure](https://azure.microsoft.com/), [Google Compute Engine](https://cloud.google.com/compute/), [Scaleway](https://www.scaleway.com/) and [OpenStack](https://www.openstack.org/).
 
-2. **[Download Algo](https://github.com/trailofbits/algo/archive/master.zip).** Unzip it in a convenient location on your local machine.
+2. **[Download Soma](https://github.com/trailofbits/algo/archive/master.zip).** Unzip it in a convenient location on your local machine.
 
-3. **Install Algo's core dependencies.** Open the Terminal. The `python` interpreter you use to deploy Algo must be python2. If you don't know what this means, you're probably fine. `cd` into the `algo-master` directory where you unzipped Algo, then run:
+3. **Install SomaVPN's core dependencies.** Open the Terminal. The `python` interpreter you use to deploy Algo must be python2. If you don't know what this means, you're probably fine. `cd` into the `algo-master` directory where you unzipped Algo, then run:
 
     - macOS:
       ```bash
@@ -54,7 +54,7 @@ The easiest way to get an Algo server running is to let it set up a _new_ virtua
      - Linux (rpm-based): See the [Pre-Install Documentation for RedHat/CentOS 6.x](docs/deploy-from-redhat-centos6.md)
      - Windows: See the [Windows documentation](docs/deploy-from-windows.md)
 
-4. **Install Algo's remaining dependencies.** Use the same Terminal window as the previous step and run:
+4. **Install SomaVPN's remaining dependencies.** Use the same Terminal window as the previous step and run:
     ```bash
     $ python -m virtualenv --python=`which python2` env &&
         source env/bin/activate &&
@@ -65,7 +65,7 @@ The easiest way to get an Algo server running is to let it set up a _new_ virtua
 
 5. **List the users to create.** Open `config.cfg` in your favorite text editor. Specify the users you wish to create in the `users` list.
 
-6. **Start the deployment.** Return to your terminal. In the Algo directory, run `./algo` and follow the instructions. There are several optional features available. None are required for a fully functional VPN server. These optional features are described in greater detail in [deploy-from-ansible.md](docs/deploy-from-ansible.md).
+6. **Start the deployment.** Return to your terminal. In the SomaVPN directory, run `./algo` and follow the instructions. There are several optional features available. None are required for a fully functional VPN server. These optional features are described in greater detail in [deploy-from-ansible.md](docs/deploy-from-ansible.md).
 
 That's it! You will get the message below when the server deployment process completes. You now have an Algo server on the internet. Take note of the p12 (user certificate) password in case you need it later, **it will only be displayed this time**.
 
@@ -74,7 +74,7 @@ You can now setup clients to connect it, e.g. your iPhone or laptop. Proceed to 
 ```
         "\"#----------------------------------------------------------------------#\"",
         "\"#                          Congratulations!                            #\"",
-        "\"#                     Your Algo server is running.                     #\"",
+        "\"#                     Your Soma server is running.                     #\"",
         "\"#    Config files and certificates are in the ./configs/ directory.    #\"",
         "\"#              Go to https://whoer.net/ after connecting               #\"",
         "\"#        and ensure that all your traffic passes through the VPN.      #\"",
@@ -157,7 +157,7 @@ Use the example command below to start an SSH tunnel by replacing `user` and `ip
 
  `ssh -D 127.0.0.1:1080 -f -q -C -N user@ip -i configs/ip_user.ssh.pem`
 
-## SSH into Algo Server
+## SSH into Soma Server
 
 To SSH into the Algo server for administrative purposes you can use the example command below by replacing `ip` with your own:
 
@@ -226,7 +226,7 @@ If you read all the documentation and have further questions, [join the chat on 
 
 -- [Thorin Klosowski](https://twitter.com/kingthor) for [Lifehacker](http://lifehacker.com/how-to-set-up-your-own-completely-free-vpn-in-the-cloud-1794302432)
 
-## Support Algo VPN
+## Support SomaVPN
 [![Flattr](https://button.flattr.com/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=kxw60j&url=https%3A%2F%2Fgithub.com%2Ftrailofbits%2Falgo)
 [![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CYZZD39GXUJ3E)
 [![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/algovpn)
